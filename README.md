@@ -103,7 +103,11 @@ npm install yarn
 - 进入项目目录，执行如下命令安装依赖
 
 ```
-npm install --production --registry=https://registry.npmmirror.com/
+npm install --save-dev @electron-forge/cli
+```
+
+```
+npx electron-forge import
 ```
 
 - 使用如下命令进行调试
