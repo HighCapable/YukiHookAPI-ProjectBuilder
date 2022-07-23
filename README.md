@@ -39,7 +39,7 @@ Formatting code with **Visual Studio Code** is not recommended and may cause som
 - Execute the following command to install Electron
 
 ```
-npm install electron --save-dev
+npm install --save-dev electron
 ```
 
 - Execute the following command to install yarn
@@ -51,7 +51,11 @@ npm install yarn
 - Enter the project directory and execute the following command to install dependencies
 
 ```
-npm install --production --registry=https://registry.npmmirror.com/
+npm install --save-dev @electron-forge/cli
+```
+
+```
+npx electron-forge import
 ```
 
 - Use the following command to debug
@@ -91,7 +95,7 @@ IDE 工具建议使用 **IntelliJ IDEA** 或 **WebStorm**
 - 执行如下命令安装 Electron
 
 ```
-npm install electron --save-dev
+npm install --save-dev electron
 ```
 
 - 执行如下命令安装 yarn
