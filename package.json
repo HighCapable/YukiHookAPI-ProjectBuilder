@@ -1,0 +1,67 @@
+{
+  "name": "yukihookapi-projectbuilder",
+  "productName": "YukiHookAPI Project Builder",
+  "version": "1.0.0",
+  "description": "A Xposed Project Builder by YukiHookAPI",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Hello YukiHookAPI-ProjectBuilder!\" && exit 1",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
+  "author": "HighCapable",
+  "license": "AGPL-3.0",
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.64",
+    "@electron-forge/maker-deb": "^6.0.0-beta.64",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.64",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.64",
+    "@electron-forge/maker-zip": "^6.0.0-beta.64",
+    "electron": "^19.0.7",
+    "electron-icon-builder": "^2.0.1"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.3",
+    "decompress-zip": "^0.3.3",
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-store": "^8.0.2",
+    "fs-extra": "^10.1.0"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "packageManager": "npm",
+        "icon": "src/icons/icon",
+        "asar": true,
+        "overwrite": true
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "yukihookapi_projectbuilder"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {
+            "name": "yukihookapi_projectbuilder"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {
+            "name": "yukihookapi_projectbuilder"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,323 @@
+<!--
+  YukiHookAPI Project Builder - A Xposed Project Builder by YukiHookAPI.
+  Copyright (C) 2019-2022 HighCapable
+  https://github.com/fankes/YukiHookAPI-ProjectBuilder
+
+  This software is non-free but opensource software: you can redistribute it
+  and/or modify it under the terms of the GNU Affero General Public License
+  as published by the Free Software Foundation; either
+  version 3 of the License, or any later version.
+
+  This software is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  Affero General Public License for more details.
+
+  You should have received a copy of the GNU Affero General Public License
+  and eula along with this software.  If not, see
+  <https://www.gnu.org/licenses/>
+
+  This file is Created by fankes on 2022/6/27.
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no" name="viewport">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta content="webkit" name="renderer">
+    <meta content="no-siteapp">
+    <meta content="light dark" name="color-scheme">
+    <title>&nbsp</title>
+    <link href="css/mdui.min.css" rel="stylesheet">
+    <link href="render.css" rel="stylesheet">
+    <script src="js/mdui.min.js"></script>
+</head>
+<body class="mdui-container-fluid mdui-theme-primary-orange mdui-theme-accent-orange mdui-theme-layout-auto">
+<div id="root_div" style="font-size:12pt;line-height:150%;padding-top:5pt;padding-left:10pt;padding-right:10pt;display:none">
+    <div class="mdui-row mdui-center">
+        <div class="mdui-col-xs-6">
+            <div style="margin-top: 15px"></div>
+            <div class="mdui-typo-subheading-opacity i18n" style="margin-left: 5px">{{basicConfig}}</div>
+            <div class="mdui-textfield mdui-textfield-floating-label">
+                <i class="mdui-icon material-icons">create_new_folder</i>
+                <label class="mdui-textfield-label i18n">{{projectNameTip}}</label>
+                <input class="mdui-textfield-input" id="project_name_text" required/>
+            </div>
+            <div class="mdui-textfield mdui-textfield-floating-label">
+                <i class="mdui-icon material-icons">folder</i>
+                <label class="mdui-textfield-label i18n">{{modulePackageName}} (Package Name)</label>
+                <input class="mdui-textfield-input" id="package_name_text" required/>
+            </div>
+            <div class="mdui-textfield mdui-textfield-floating-label">
+                <i class="mdui-icon material-icons">edit</i>
+                <label class="mdui-textfield-label i18n">{{moduleName}} (App Name)</label>
+                <input class="mdui-textfield-input" id="app_name_text" required/>
+            </div>
+            <div class="mdui-textfield mdui-textfield-floating-label">
+                <i class="mdui-icon material-icons">edit</i>
+                <label class="mdui-textfield-label i18n">{{moduleDescription}} (Xposed Module Description)</label>
+                <textarea class="mdui-textfield-input" id="module_description_text" required
+                          style="max-height: 80px;overflow: hidden"></textarea>
+            </div>
+            <div class="mdui-textfield">
+                <i class="mdui-icon material-icons">widgets</i>
+                <label class="mdui-textfield-label i18n">{{uiComponents}}</label>
+                <select class="mdui-select" id="compoment_select">
+                    <option class="i18n" value="0">{{createDefaultActivity}}</option>
+                    <option class="i18n" value="1">{{createBlankActivity}}</option>
+                    <option class="i18n" value="2">{{withoutUiComponents}}</option>
+                </select>
+            </div>
+            <div class="mdui-row">
+                <div class="mdui-textfield mdui-textfield-floating-label mdui-col-xs-6">
+                    <i class="mdui-icon material-icons">details</i>
+                    <label class="mdui-textfield-label i18n">{{appMinApiVersion}}</label>
+                    <input class="mdui-textfield-input" id="app_min_api_text" required type="number" value="27"/>
+                </div>
+                <div class="mdui-textfield mdui-textfield-floating-label mdui-col-xs-6">
+                    <i class="mdui-icon material-icons">change_history</i>
+                    <label class="mdui-textfield-label i18n">{{appTargetApiVersion}}</label>
+                    <input class="mdui-textfield-input" id="app_target_api_text" required type="number"
+                           value="32"/>
+                </div>
+            </div>
+            <div class="mdui-textfield mdui-textfield-floating-label">
+                <i class="mdui-icon material-icons">extension</i>
+                <label class="mdui-textfield-label i18n">{{xposedMinApiVersion}} (Xposed Min API Version)</label>
+                <input class="mdui-textfield-input" id="xposed_min_api_text" required type="number" value="93"/>
+            </div>
+            <div class="mdui-textfield">
+                <i class="mdui-icon material-icons">settings_input_hdmi</i>
+                <label class="mdui-textfield-label i18n">{{targetXposedPlatform}} (Xposed Platform)</label>
+                <select class="mdui-select" id="target_xposed_platform_select">
+                    <option class="i18n" value="0">{{universal}}</option>
+                    <option value="1">LSPosed</option>
+                    <!-- TODO LSPatch WIP -->
+                    <option disabled value="2">LSPatch (WIP)</option>
+                    <option value="3">TaiChi</option>
+                    <option class="i18n" value="4">{{nativeXposed}}</option>
+                </select>
+            </div>
+            <div class="mdui-textfield" id="new_xshare_prefs_div">
+                <i class="mdui-icon material-icons">style</i>
+                <label class="mdui-textfield-label i18n">{{declarationNewXSharePrefs}}</label>
+                <select class="mdui-select" id="new_xshare_prefs_select">
+                    <option class="i18n" value="0">{{notConfigure}}</option>
+                    <option class="i18n" value="1">{{yesOfConfigure}}</option>
+                    <option class="i18n" value="2">{{noOfConfigure}}</option>
+                </select>
+            </div>
+            <div id="module_scope_div">
+                <div class="mdui-textfield">
+                    <i class="mdui-icon material-icons">view_list</i>
+                    <label class="mdui-textfield-label i18n" style="margin-bottom: 7px">{{moduleScope}}</label>
+                </div>
+                <div class="mdui-list" id="scope_list"
+                     style="margin-left: 40px; margin-top: -15px; max-height:100px; overflow:auto"></div>
+                <button class="mdui-btn mdui-round-btn mdui-btn-block mdui-color-theme-accent mdui-ripple"
+                        onclick="moduleScope.showAddDialog()"
+                        style="margin-left: 40px;width: 92%">
+                    <i class="mdui-icon material-icons" style="margin-bottom: 4px;margin-right: 4px">add</i>
+                    <span class="i18n" style="text-transform: none">{{addApps}}</span>
+                </button>
+            </div>
+            <div style="margin-top: 15px"></div>
+        </div>
+        <div class="mdui-col-xs-6">
+            <div style="margin-top: 15px"></div>
+            <div class="mdui-typo-subheading-opacity i18n" style="margin-left: 5px">{{yukiHookApiConfig}}</div>
+            <div class="mdui-textfield mdui-textfield-floating-label">
+                <i class="mdui-icon material-icons">code</i>
+                <label class="mdui-textfield-label i18n">{{entryClassName}}</label>
+                <input class="mdui-textfield-input" id="entry_class_name_text"/>
+            </div>
+            <div class="mdui-textfield">
+                <i class="mdui-icon material-icons">photo_library</i>
+                <label class="mdui-textfield-label i18n">{{addResourcesHookSupport}}</label>
+                <select class="mdui-select" id="support_resources_hook_select">
+                    <option class="i18n" value="0">{{notConfigureDefYes}}</option>
+                    <option class="i18n" value="1">{{yesOfConfigure}}</option>
+                    <option class="i18n" value="2">{{noOfConfigure}}</option>
+                </select>
+            </div>
+            <div class="mdui-textfield mdui-textfield-floating-label">
+                <i class="mdui-icon material-icons">local_offer</i>
+                <label class="mdui-textfield-label i18n">{{debugTagName}}</label>
+                <input class="mdui-textfield-input" id="debug_tag_name_text"/>
+            </div>
+            <div class="mdui-textfield">
+                <i class="mdui-icon material-icons">bug_report</i>
+                <label class="mdui-textfield-label i18n">{{enableDebugMode}}</label>
+                <select class="mdui-select" id="enable_debug_select">
+                    <option class="i18n" value="0">{{notConfigureDefYes}}</option>
+                    <option class="i18n" value="1">{{yesOfConfigure}}</option>
+                    <option class="i18n" value="2">{{noOfConfigure}}</option>
+                </select>
+            </div>
+            <div class="mdui-textfield">
+                <i class="mdui-icon material-icons">pageview</i>
+                <label class="mdui-textfield-label i18n">{{enablePrintLogcat}}</label>
+                <select class="mdui-select" id="enable_print_logcat_select">
+                    <option class="i18n" value="0">{{notConfigureDefYes}}</option>
+                    <option class="i18n" value="1">{{yesOfConfigure}}</option>
+                    <option class="i18n" value="2">{{noOfConfigure}}</option>
+                </select>
+            </div>
+            <div class="mdui-textfield">
+                <i class="mdui-icon material-icons">storage</i>
+                <label class="mdui-textfield-label i18n">{{enableYukiHookModulePrefsCache}}</label>
+                <select class="mdui-select" id="enable_yprefs_cache_select">
+                    <option class="i18n" value="0">{{notConfigureDefYes}}</option>
+                    <option class="i18n" value="1">{{yesOfConfigure}}</option>
+                    <option class="i18n" value="2">{{noOfConfigure}}</option>
+                </select>
+            </div>
+            <div class="mdui-textfield">
+                <i class="mdui-icon material-icons">satellite</i>
+                <label class="mdui-textfield-label i18n">{{enableModuleResourcesCache}}</label>
+                <select class="mdui-select" id="enable_resources_cache_select">
+                    <option class="i18n" value="0">{{notConfigureDefYes}}</option>
+                    <option class="i18n" value="1">{{yesOfConfigure}}</option>
+                    <option class="i18n" value="2">{{noOfConfigure}}</option>
+                </select>
+            </div>
+            <div class="mdui-textfield">
+                <i class="mdui-icon material-icons">done_all</i>
+                <label class="mdui-textfield-label i18n">{{enableModuleStatus}}</label>
+                <select class="mdui-select" id="enable_module_status_select">
+                    <option class="i18n" value="0">{{notConfigureDefYes}}</option>
+                    <option class="i18n" value="1">{{yesOfConfigure}}</option>
+                    <option class="i18n" value="2">{{noOfConfigure}}</option>
+                </select>
+            </div>
+            <div class="mdui-textfield">
+                <i class="mdui-icon material-icons">settings_input_composite</i>
+                <label class="mdui-textfield-label i18n">{{enableYukiHookDataChannel}}</label>
+                <select class="mdui-select" id="enable_ychannel_select">
+                    <option class="i18n" value="0">{{notConfigureDefYes}}</option>
+                    <option class="i18n" value="1">{{yesOfConfigure}}</option>
+                    <option class="i18n" value="2">{{noOfConfigure}}</option>
+                </select>
+            </div>
+            <div class="mdui-textfield">
+                <i class="mdui-icon material-icons">texture</i>
+                <label class="mdui-textfield-label i18n">{{enableMemberCache}}</label>
+                <select class="mdui-select" id="enable_member_cache_select">
+                    <option class="i18n" value="0">{{notConfigureDefYes}}</option>
+                    <option class="i18n" value="1">{{yesOfConfigure}}</option>
+                    <option class="i18n" value="2">{{noOfConfigure}}</option>
+                </select>
+            </div>
+            <div style="margin-top: 15px"></div>
+        </div>
+    </div>
+    <button class="mdui-fab mdui-fab-fixed mdui-color-theme-accent mdui-ripple" onclick="build.checking()"
+            style="margin-right: 10px;margin-bottom: 10px">
+        <i class="mdui-icon material-icons">archive</i>
+    </button>
+</div>
+<div class="mdui-dialog" id="module_scope_dialog" style="max-width: 500px">
+    <div class="mdui-dialog-title i18n">{{addApps}}</div>
+    <div>
+        <span class="i18n" style="margin-left: 24px">{{selectScopeAppsOrEnterOnceTip}}</span>
+        <select class="mdui-select" id="module_scope_select" style="margin-left: 26px;margin-top: 10px">
+            <option class="i18n" selected value="0">-- {{customize}} --</option>
+            <option class="i18n" value="1">{{systemFramework}}</option>
+            <option class="i18n" value="2">{{systemUi}}</option>
+        </select>
+        <div class="mdui-textfield" style="margin-left: 26px;margin-right: 33px">
+            <input class="mdui-textfield-input i18n" id="module_scope_text" placeholder="{{enterAppNameTip}}" type="text"/>
+        </div>
+    </div>
+    <div class="mdui-dialog-actions">
+        <button class="mdui-btn mdui-ripple i18n" mdui-dialog-close>{{cancel}}</button>
+        <button class="mdui-btn mdui-ripple i18n" onclick="moduleScope.saveData()">{{ok}}</button>
+    </div>
+</div>
+<div class="mdui-dialog" id="search_depend_dialog" style="max-width: 500px">
+    <div class="mdui-dialog-title i18n">{{pleaseWait}}</div>
+    <div class="mdui-dialog-content">
+        <span class="i18n">{{autoSearchingDependsTip}}</span>
+        <div style="height: 15px"></div>
+        <div class="mdui-progress">
+            <div class="mdui-progress-indeterminate"></div>
+        </div>
+    </div>
+</div>
+<div class="mdui-dialog" id="config_package_dialog" style="max-width: 500px">
+    <div class="mdui-dialog-title i18n">{{configProjectDepends}}</div>
+    <div>
+        <span class="i18n" style="margin-left: 24px">{{gradlePaper}}</span>
+        <select class="mdui-select" id="gradle_version_select"
+                style="margin-left: 26px;margin-top: 10px;margin-bottom: 15px">
+        </select>
+        <span class="i18n" style="margin-left: 24px">{{agpVersion}}</span>
+        <select class="mdui-select" id="agp_version_select"
+                style="margin-left: 26px;margin-top: 10px;margin-bottom: 15px">
+        </select>
+        <span class="i18n" style="margin-left: 24px">{{kotlinVersion}}</span>
+        <select class="mdui-select" id="kotlin_version_select"
+                style="margin-left: 26px;margin-top: 10px;margin-bottom: 15px">
+        </select>
+        <span class="i18n" style="margin-left: 24px">{{yukiHookApiVersion}}</span>
+        <select class="mdui-select" id="yukihookapi_version_select"
+                style="margin-left: 26px;margin-top: 10px;margin-bottom: 20px">
+        </select>
+        <div style="margin-left: 24px;margin-right: 24px;margin-bottom: 20px">
+            <span class="i18n" style="font-size:9pt;opacity: 0.55">{{oldDependsWarnTip}}</span>
+        </div>
+    </div>
+    <div class="mdui-dialog-actions">
+        <button class="mdui-btn mdui-ripple i18n" mdui-dialog-close onclick="build.unlockStatus()">{{cancel}}</button>
+        <button class="mdui-btn mdui-ripple i18n" onclick="build.run()">{{runBuild}}</button>
+    </div>
+</div>
+<div class="mdui-dialog" id="packaging_progress_dialog" style="max-width: 500px">
+    <div class="mdui-dialog-title i18n">{{pleaseWait}}</div>
+    <div class="mdui-dialog-content">
+        <span id="packaging_progress_text"></span>
+        <div style="height: 15px"></div>
+        <div class="mdui-progress">
+            <div class="mdui-progress-indeterminate"></div>
+        </div>
+    </div>
+</div>
+<div class="mdui-dialog" id="about_dialog" style="max-width: 500px">
+    <div class="mdui-dialog-title i18n">{{about}}</div>
+    <div class="mdui-dialog-content" style="line-height: 35px">
+        <span id="about_name_text"></span><br/>
+        <span id="about_version_text"></span><br/>
+        <span class="i18n">{{aboutTip}}</span><br/>
+        <span class="i18n">{{projectAddress}}:&nbsp</span>
+        <span class="url-link">https://github.com/fankes/YukiHookAPI</span><br/>
+        <div style="margin-top: 10px"></div>
+        <span class="i18n" style="font-size: 10pt;opacity: 0.6;line-height: 18px">{{noticeTip}}</span>
+    </div>
+    <div class="mdui-dialog-actions">
+        <button class="mdui-btn mdui-ripple i18n" mdui-dialog-close onclick="page.checkForUpdates()">{{checkUpdate}}</button>
+        <button class="mdui-btn mdui-ripple i18n" mdui-dialog-close>{{close}}</button>
+    </div>
+</div>
+<div class="mdui-dialog" id="open_source_dialog" style="max-width: 500px">
+    <div class="mdui-dialog-title i18n">{{openSource}}</div>
+    <div class="mdui-dialog-content" style="line-height: 35px">
+        <span>Electron</span>&nbsp&nbsp<span class="license-text">MIT</span><br/>
+        <span class="url-link">https://github.com/electron</span><br/>
+        <span>Node.js</span>&nbsp&nbsp<span class="license-text">MIT</span><br/>
+        <span class="url-link">https://github.com/nodejs</span><br/>
+        <span>Node.js: fs-extra</span>&nbsp&nbsp<span class="license-text">MIT</span><br/>
+        <span class="url-link">https://github.com/jprichardson/node-fs-extra</span><br/>
+        <span>DecompressZip</span>&nbsp&nbsp<span class="license-text">MIT</span><br/>
+        <span class="url-link">https://github.com/NASGO/decompress-zip</span><br/>
+        <span>DAY.JS</span>&nbsp&nbsp<span class="license-text">MIT</span><br/>
+        <span class="url-link">https://github.com/iamkun/dayjs</span><br/>
+        <span>DrawableToolbox</span>&nbsp&nbsp<span class="license-text">Apache-2.0</span><br/>
+        <span class="url-link">https://github.com/duanhong169/DrawableToolbox</span>
+    </div>
+    <div class="mdui-dialog-actions">
+        <button class="mdui-btn mdui-ripple i18n" mdui-dialog-close>{{close}}</button>
+    </div>
+</div>
+</body>
+<script src="render.js"></script>
+</html>
