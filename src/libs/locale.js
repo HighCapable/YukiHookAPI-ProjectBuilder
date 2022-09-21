@@ -263,7 +263,7 @@ const locale = {
             "enableModuleResourcesCache": "启用模块 Resources 缓存功能",
             "enableModuleStatus": "启用模块激活状态监听功能",
             "enableYukiHookDataChannel": "启用 YukiHookDataChannel 功能",
-            "enableMemberCache": "启用已查询的反射类、方法、变量缓存功能",
+            "enableMemberCache": "启用已查找的反射类、方法、变量缓存功能",
             "selectScopeAppsOrEnterOnceTip": "请从下面的列表中选择你需要添加到作用域中的应用",
             "customize": "自定义",
             "systemFramework": "系统框架",
