@@ -57,9 +57,9 @@ const projectConfigs = {
         packageName: '',
         appName: '',
         moduleDescription: '',
-        appMinApi: 0,
-        appTargetApi: 0,
-        xposedMinApi: 0,
+        appMinApi: 27,
+        appTargetApi: 32,
+        xposedMinApi: 93,
         moduleCompoment: 0,
         targetXposedPlatform: 0,
         newXSharePrefs: 0,
@@ -683,6 +683,11 @@ const page = {
                     $(element).attr('placeholder', innerHtml.replace(/\{\{(.*)}}/, i18nText));
                 else element.innerHTML = innerHtml.replace(/\{\{(.*)}}/, i18nText);
         });
+        /** 初始化必要数据 */
+        $('#app_min_api_text').val(projectConfigs.basicConfig.appMinApi);
+        $('#app_target_api_text').val(projectConfigs.basicConfig.appTargetApi);
+        $('#xposed_min_api_text').val(projectConfigs.basicConfig.xposedMinApi);
+        /** 显示页面 */
         $('#root_div').show();
         page.checkForUpdates(false);
     },
