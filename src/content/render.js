@@ -58,7 +58,7 @@ const projectConfigs = {
         appName: '',
         moduleDescription: '',
         appMinApi: 27,
-        appTargetApi: 32,
+        appTargetApi: 33,
         xposedMinApi: 93,
         moduleCompoment: 0,
         targetXposedPlatform: 0,

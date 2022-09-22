@@ -150,13 +150,13 @@ const transaction = {
                         type: 'implementation',
                         groupId: 'androidx.core',
                         artifactId: 'core-ktx',
-                        version: '1.8.0'
+                        version: '1.9.0'
                     },
                     appcompat: {
                         type: 'implementation',
                         groupId: 'androidx.appcompat',
                         artifactId: 'appcompat',
-                        version: '1.4.2'
+                        version: '1.5.1'
                     },
                     material: {
                         type: 'implementation',
