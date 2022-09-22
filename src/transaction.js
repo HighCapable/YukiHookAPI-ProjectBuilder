@@ -210,9 +210,11 @@ const transaction = {
                     supportResourcesHook: (isEnabled) => 'isUsingResourcesHook = ' + (isEnabled ? 'true' : 'false')
                 },
                 configs: {
-                    debugTagName: (name) => 'debugTag = "' + name + '"',
+                    debugLog: {
+                        tagName: (name) => 'tag = "' + name + '"',
+                        enable: (isEnabled) => 'isEnable = ' + (isEnabled ? 'true' : 'false')
+                    },
                     enableDebug: (isEnabled) => 'isDebug = ' + (isEnabled ? 'true' : 'false'),
-                    enablePrintLogcat: (isEnabled) => 'isAllowPrintingLogs = ' + (isEnabled ? 'true' : 'false'),
                     enableYPrefsCache: (isEnabled) => 'isEnableModulePrefsCache = ' + (isEnabled ? 'true' : 'false'),
                     enableResourcesCache: (isEnabled) => 'isEnableModuleAppResourcesCache = ' + (isEnabled ? 'true' : 'false'),
                     enableModuleStatus: (isEnabled) => 'isEnableHookModuleStatus = ' + (isEnabled ? 'true' : 'false'),
@@ -331,15 +333,23 @@ const transaction = {
                     hookEntryAnnotationCode.trim().substring(0, hookEntryAnnotationCode.trim().lastIndexOf(',')) :
                     hookEntryAnnotationCode.trim()) + ')';
             let hookEntryConfigsCode = '';
-            if (configs.yukiHookApiConfig.debugTagName !== '')
-                hookEntryConfigsCode = codeFiles.append(hookEntryConfigsCode,
-                    codeFiles['HookEntry.kt'].configs.debugTagName(configs.yukiHookApiConfig.debugTagName));
+            if (configs.yukiHookApiConfig.debugLogTagName !== '' || configs.yukiHookApiConfig.enableDebugLog !== 0) {
+                hookEntryConfigsCode += 'debugLog {\n';
+                hookEntryConfigsCode += codeFiles.space(12);
+                if (configs.yukiHookApiConfig.debugLogTagName !== '') {
+                    hookEntryConfigsCode = codeFiles.append(hookEntryConfigsCode,
+                        codeFiles['HookEntry.kt'].configs.debugLog.tagName(configs.yukiHookApiConfig.debugLogTagName));
+                    if (configs.yukiHookApiConfig.enableDebugLog !== 0) hookEntryConfigsCode += codeFiles.space(4);
+                }
+                if (configs.yukiHookApiConfig.enableDebugLog !== 0)
+                    hookEntryConfigsCode = codeFiles.append(hookEntryConfigsCode,
+                        codeFiles['HookEntry.kt'].configs.debugLog.enable(configs.yukiHookApiConfig.enableDebugLog === 1));
+                hookEntryConfigsCode += '}\n';
+                hookEntryConfigsCode += codeFiles.space(8);
+            }
             if (configs.yukiHookApiConfig.enableDebug !== 0)
                 hookEntryConfigsCode = codeFiles.append(hookEntryConfigsCode,
                     codeFiles['HookEntry.kt'].configs.enableDebug(configs.yukiHookApiConfig.enableDebug === 1));
-            if (configs.yukiHookApiConfig.enablePrintLogcat !== 0)
-                hookEntryConfigsCode = codeFiles.append(hookEntryConfigsCode,
-                    codeFiles['HookEntry.kt'].configs.enablePrintLogcat(configs.yukiHookApiConfig.enablePrintLogcat === 1));
             if (configs.yukiHookApiConfig.enableYPrefsCache !== 0)
                 hookEntryConfigsCode = codeFiles.append(hookEntryConfigsCode,
                     codeFiles['HookEntry.kt'].configs.enableYPrefsCache(configs.yukiHookApiConfig.enableYPrefsCache === 1));

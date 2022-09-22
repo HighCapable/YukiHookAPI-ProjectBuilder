@@ -67,10 +67,10 @@ const projectConfigs = {
     },
     yukiHookApiConfig: {
         entryClassName: '',
-        debugTagName: '',
+        debugLogTagName: '',
         supportResourcesHook: 0,
         enableDebug: 0,
-        enablePrintLogcat: 0,
+        enableDebugLog: 0,
         enableYPrefsCache: 0,
         enableResourcesCache: 0,
         enableModuleStatus: 0,
@@ -301,13 +301,13 @@ const configForm = {
     appTargetApiText: () => $('#app_target_api_text').val(),
     xposedMinApiText: () => $('#xposed_min_api_text').val(),
     entryClassNameText: () => $('#entry_class_name_text').val(),
-    debugTagNameText: () => $('#debug_tag_name_text').val(),
+    debugLogTagNameText: () => $('#debug_log_tag_name_text').val(),
     compomentSelect: () => valUtils.integerOf($('#compoment_select option:selected').val()),
     targetXposedPlatformSelect: () => valUtils.integerOf($('#target_xposed_platform_select option:selected').val()),
     newXSharePrefsSelect: () => valUtils.integerOf($('#new_xshare_prefs_select option:selected').val()),
     supportResourcesHookSelect: () => valUtils.integerOf($('#support_resources_hook_select option:selected').val()),
     enableDebugSelect: () => valUtils.integerOf($('#enable_debug_select option:selected').val()),
-    enablePrintLogcatSelect: () => valUtils.integerOf($('#enable_print_logcat_select option:selected').val()),
+    enableDebugLogSelect: () => valUtils.integerOf($('#enable_debug_log_select option:selected').val()),
     enableYPrefsCacheSelect: () => valUtils.integerOf($('#enable_yprefs_cache_select option:selected').val()),
     enableResourcesCacheSelect: () => valUtils.integerOf($('#enable_resources_cache_select option:selected').val()),
     enableModuleStatusSelect: () => valUtils.integerOf($('#enable_module_status_select option:selected').val()),
@@ -343,10 +343,10 @@ const build = {
         projectConfigs.basicConfig.newXSharePrefs = configForm.newXSharePrefsSelect();
         projectConfigs.basicConfig.moduleScopes = moduleScope.moduleScopesData();
         projectConfigs.yukiHookApiConfig.entryClassName = configForm.entryClassNameText();
-        projectConfigs.yukiHookApiConfig.debugTagName = configForm.debugTagNameText();
+        projectConfigs.yukiHookApiConfig.debugLogTagName = configForm.debugLogTagNameText();
         projectConfigs.yukiHookApiConfig.supportResourcesHook = configForm.supportResourcesHookSelect();
         projectConfigs.yukiHookApiConfig.enableDebug = configForm.enableDebugSelect();
-        projectConfigs.yukiHookApiConfig.enablePrintLogcat = configForm.enablePrintLogcatSelect();
+        projectConfigs.yukiHookApiConfig.enableDebugLog = configForm.enableDebugLogSelect();
         projectConfigs.yukiHookApiConfig.enableYPrefsCache = configForm.enableYPrefsCacheSelect();
         projectConfigs.yukiHookApiConfig.enableResourcesCache = configForm.enableResourcesCacheSelect();
         projectConfigs.yukiHookApiConfig.enableModuleStatus = configForm.enableModuleStatusSelect();
@@ -615,13 +615,13 @@ const configTemplate = {
             $('#app_target_api_text').val(data.basicConfig.appTargetApi);
             $('#xposed_min_api_text').val(data.basicConfig.xposedMinApi);
             $('#entry_class_name_text').val(data.yukiHookApiConfig.entryClassName);
-            $('#debug_tag_name_text').val(data.yukiHookApiConfig.debugTagName);
+            $('#debug_log_tag_name_text').val(data.yukiHookApiConfig.debugLogTagName);
             $('#compoment_select').val(data.basicConfig.moduleCompoment);
             $('#target_xposed_platform_select').val(data.basicConfig.targetXposedPlatform);
             $('#new_xshare_prefs_select').val(data.basicConfig.newXSharePrefs);
             $('#support_resources_hook_select').val(data.yukiHookApiConfig.supportResourcesHook);
             $('#enable_debug_select').val(data.yukiHookApiConfig.enableDebug);
-            $('#enable_print_logcat_select').val(data.yukiHookApiConfig.enablePrintLogcat);
+            $('#enable_debug_log_select').val(data.yukiHookApiConfig.enableDebugLog);
             $('#enable_yprefs_cache_select').val(data.yukiHookApiConfig.enableYPrefsCache);
             $('#enable_resources_cache_select').val(data.yukiHookApiConfig.enableResourcesCache);
             $('#enable_module_status_select').val(data.yukiHookApiConfig.enableModuleStatus);
