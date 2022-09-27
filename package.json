@@ -1,7 +1,7 @@
 {
   "name": "yukihookapi-projectbuilder",
   "productName": "YukiHookAPI Project Builder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Xposed Project Builder by YukiHookAPI",
   "main": "src/app.js",
   "scripts": {

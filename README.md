@@ -1,7 +1,7 @@
 # YukiHookAPI Project Builder
 
 ![Blank](https://img.shields.io/badge/license-AGPL3.0-blue)
-![Blank](https://img.shields.io/badge/version-v1.0.0-green)
+![Blank](https://img.shields.io/badge/version-v1.0.1-green)
 [![Telegram](https://img.shields.io/badge/Follow-Telegram-blue.svg?logo=telegram)](https://t.me/YukiHookAPI)
 <br/><br/>
 <img src="https://github.com/fankes/YuKiHookAPI/blob/master/img-src/icon.png" width = "100" height = "100"/>
