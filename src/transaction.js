@@ -156,13 +156,13 @@ const transaction = {
                         type: 'implementation',
                         groupId: 'androidx.appcompat',
                         artifactId: 'appcompat',
-                        version: '1.5.1'
+                        version: '1.6.0'
                     },
                     material: {
                         type: 'implementation',
                         groupId: 'com.google.android.material',
                         artifactId: 'material',
-                        version: '1.6.1'
+                        version: '1.7.0'
                     },
                     constraintlayout: {
                         type: 'implementation',
@@ -180,13 +180,13 @@ const transaction = {
                         type: 'androidTestImplementation',
                         groupId: 'androidx.test.ext',
                         artifactId: 'junit',
-                        version: '1.1.3'
+                        version: '1.1.5'
                     },
                     androidxTestEspresso: {
                         type: 'androidTestImplementation',
                         groupId: 'androidx.test.espresso',
                         artifactId: 'espresso-core',
-                        version: '3.4.0'
+                        version: '3.5.1'
                     }
                 }
             },
