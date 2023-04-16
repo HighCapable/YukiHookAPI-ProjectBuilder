@@ -4,7 +4,7 @@
 ![Blank](https://img.shields.io/badge/version-v1.0.1-green)
 [![Telegram](https://img.shields.io/badge/Follow-Telegram-blue.svg?logo=telegram)](https://t.me/YukiHookAPI)
 <br/><br/>
-<img src="https://github.com/fankes/YuKiHookAPI/blob/master/img-src/icon.png" width = "100" height = "100"/>
+<img src="https://github.com/fankes/YuKiHookAPI/blob/master/img-src/icon.png?raw=true" width = "100" height = "100"/>
 <br/>
 <br/>
 帮助你快速创建一个使用 YukiHookAPI 打造的 Xposed 项目模板。
