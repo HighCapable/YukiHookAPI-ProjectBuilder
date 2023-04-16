@@ -215,7 +215,7 @@ const transaction = {
                         enable: (isEnabled) => 'isEnable = ' + (isEnabled ? 'true' : 'false')
                     },
                     enableDebug: (isEnabled) => 'isDebug = ' + (isEnabled ? 'true' : 'false'),
-                    enableYPrefsCache: (isEnabled) => 'isEnableModulePrefsCache = ' + (isEnabled ? 'true' : 'false'),
+                    enableYPrefsCache: (isEnabled) => 'isEnablePrefsBridgeCache = ' + (isEnabled ? 'true' : 'false'),
                     enableResourcesCache: (isEnabled) => 'isEnableModuleAppResourcesCache = ' + (isEnabled ? 'true' : 'false'),
                     enableModuleStatus: (isEnabled) => 'isEnableHookModuleStatus = ' + (isEnabled ? 'true' : 'false'),
                     enableYChannel: (isEnabled) => 'isEnableDataChannel = ' + (isEnabled ? 'true' : 'false'),
