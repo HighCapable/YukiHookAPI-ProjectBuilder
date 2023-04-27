@@ -79,7 +79,7 @@ npm run package
 - [AGPL-3.0](https://www.gnu.org/licenses/agpl-3.0.html)
 
 ```
-Copyright (C) 2019-2022 HighCapable
+Copyright (C) 2019-2023 HighCapable
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as
@@ -95,4 +95,4 @@ You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ```
 
-版权所有 © 2019-2022 HighCapable
+版权所有 © 2019-2023 HighCapable
