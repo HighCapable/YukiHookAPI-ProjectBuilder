@@ -215,11 +215,9 @@ const transaction = {
                         enable: (isEnabled) => 'isEnable = ' + (isEnabled ? 'true' : 'false')
                     },
                     enableDebug: (isEnabled) => 'isDebug = ' + (isEnabled ? 'true' : 'false'),
-                    enableYPrefsCache: (isEnabled) => 'isEnablePrefsBridgeCache = ' + (isEnabled ? 'true' : 'false'),
                     enableResourcesCache: (isEnabled) => 'isEnableModuleAppResourcesCache = ' + (isEnabled ? 'true' : 'false'),
                     enableModuleStatus: (isEnabled) => 'isEnableHookModuleStatus = ' + (isEnabled ? 'true' : 'false'),
-                    enableYChannel: (isEnabled) => 'isEnableDataChannel = ' + (isEnabled ? 'true' : 'false'),
-                    enableMemberCache: (isEnabled) => 'isEnableMemberCache = ' + (isEnabled ? 'true' : 'false')
+                    enableYChannel: (isEnabled) => 'isEnableDataChannel = ' + (isEnabled ? 'true' : 'false')
                 }
             },
             'MainActivity.kt': {
@@ -350,9 +348,6 @@ const transaction = {
             if (configs.yukiHookApiConfig.enableDebug !== 0)
                 hookEntryConfigsCode = codeFiles.append(hookEntryConfigsCode,
                     codeFiles['HookEntry.kt'].configs.enableDebug(configs.yukiHookApiConfig.enableDebug === 1));
-            if (configs.yukiHookApiConfig.enableYPrefsCache !== 0)
-                hookEntryConfigsCode = codeFiles.append(hookEntryConfigsCode,
-                    codeFiles['HookEntry.kt'].configs.enableYPrefsCache(configs.yukiHookApiConfig.enableYPrefsCache === 1));
             if (configs.yukiHookApiConfig.enableResourcesCache !== 0)
                 hookEntryConfigsCode = codeFiles.append(hookEntryConfigsCode,
                     codeFiles['HookEntry.kt'].configs.enableResourcesCache(configs.yukiHookApiConfig.enableResourcesCache === 1));
@@ -362,9 +357,6 @@ const transaction = {
             if (configs.yukiHookApiConfig.enableYChannel !== 0)
                 hookEntryConfigsCode = codeFiles.append(hookEntryConfigsCode,
                     codeFiles['HookEntry.kt'].configs.enableYChannel(configs.yukiHookApiConfig.enableYChannel === 1));
-            if (configs.yukiHookApiConfig.enableMemberCache !== 0)
-                hookEntryConfigsCode = codeFiles.append(hookEntryConfigsCode,
-                    codeFiles['HookEntry.kt'].configs.enableMemberCache(configs.yukiHookApiConfig.enableMemberCache === 1));
             hookEntryConfigsCode = hookEntryConfigsCode.trim();
             if (hookEntryConfigsCode === '') hookEntryConfigsCode = '// Your code here.';
             let gradleDependenciesCode = '';
