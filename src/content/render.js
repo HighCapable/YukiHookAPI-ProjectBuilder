@@ -451,7 +451,7 @@ const projectDepends = {
         androidGradlePlugin: 'https://developer.android.google.cn/studio/releases/gradle-plugin.html',
         kotlin: 'https://api.github.com/repos/JetBrains/kotlin/releases',
         kotlinKsp: 'https://api.github.com/repos/google/ksp/releases',
-        yukiHookApi: 'https://s01.oss.sonatype.org/content/repositories/releases/com/highcapable/yukihookapi/api'
+        yukiHookApi: 'https://api.github.com/repos/fankes/YukiHookAPI/releases'
     },
     /** 搜索项目依赖 */
     search() {
@@ -571,16 +571,8 @@ const projectDepends = {
     findYukiHookApiVersion: () => {
         httpClient.requestDepends('YukiHookAPI', projectDepends.urls.yukiHookApi, (body) => {
             dependenciesConfigs.yukiHookApiVersions = [];
-            $(body).find('td').each((_, element) => {
-                if (element.innerText.endsWith('/') && element.innerText.indexOf('fix') < 0)
-                    dependenciesConfigs.yukiHookApiVersions.push(element.innerText.replace('/', '').trim());
-            });
-            if (dependenciesConfigs.yukiHookApiVersions.length > 0) {
-                dependenciesConfigs.yukiHookApiVersions.sort((a, b) => {
-                    return b.localeCompare(a);
-                });
-                const latestVersion = dependenciesConfigs.yukiHookApiVersions[0];
-                dependenciesConfigs.yukiHookApiVersions = [];
+            const latestVersion = body.length > 0 ? body[0]['tag_name'] : '';
+            if (latestVersion !== '') {
                 dependenciesConfigs.yukiHookApiVersions.push(latestVersion);
                 projectDepends.loaded();
             } else projectDepends.failure('YukiHookAPI', false);
