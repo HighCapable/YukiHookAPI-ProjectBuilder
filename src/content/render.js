@@ -448,7 +448,7 @@ const projectDepends = {
     /** 依赖 API 获取地址 */
     urls: {
         gradlePaper: 'https://services.gradle.org/distributions',
-        androidGradlePlugin: 'https://developer.android.google.cn/studio/releases/gradle-plugin.html',
+        androidGradlePlugin: 'https://dl.google.com/dl/android/maven2/com/android/application/com.android.application.gradle.plugin/maven-metadata.xml',
         kotlin: 'https://api.github.com/repos/JetBrains/kotlin/releases',
         kotlinKsp: 'https://api.github.com/repos/google/ksp/releases',
         yukiHookApi: 'https://api.github.com/repos/fankes/YukiHookAPI/releases'
@@ -515,21 +515,13 @@ const projectDepends = {
     findAgpVersion: () => {
         httpClient.requestDepends('Android Gradle Plugin', projectDepends.urls.androidGradlePlugin, (body) => {
             dependenciesConfigs.androidGradlePluginVersions = [];
-            $(body).find('h2').each((_, element) => {
-                if (valUtils.startsWithNumber(element.innerText))
-                    if (element.innerText.indexOf('（') > 0)
-                        dependenciesConfigs.androidGradlePluginVersions.push(element.innerText.split('（')[0].trim());
-                    else dependenciesConfigs.androidGradlePluginVersions.push(element.innerText.split('(')[0].trim());
-            });
-            $(body).find('.android-updates-box b').each((_, element) => {
-                if (valUtils.startsWithNumber(element.innerText))
-                    if (element.innerText.indexOf('（') > 0)
-                        dependenciesConfigs.androidGradlePluginVersions.push(element.innerText.split('（')[0].trim());
-                    else dependenciesConfigs.androidGradlePluginVersions.push(element.innerText.split('(')[0].trim());
-            });
-            dependenciesConfigs.androidGradlePluginVersions.sort((a, b) => {
-                return b.localeCompare(a);
-            });
+            const versionsNode = body.getElementsByTagName('version');
+            let versions = [];
+            for (let i = versionsNode.length - 1; i >= 0; i--) {
+                const version = versionsNode[i].innerHTML;
+                if (version.indexOf('-alpha') < 0 && version.indexOf('-beta') < 0 && version.indexOf('-rc') < 0) versions.push(version);
+            }
+            dependenciesConfigs.androidGradlePluginVersions = versions;
             if (dependenciesConfigs.androidGradlePluginVersions.length > 0)
                 projectDepends.findKotlinVersion();
             else projectDepends.failure('Android Gradle Plugin', false);
