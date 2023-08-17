@@ -150,7 +150,7 @@ const transaction = {
                         type: 'implementation',
                         groupId: 'androidx.core',
                         artifactId: 'core-ktx',
-                        version: '1.10.0'
+                        version: '1.10.1'
                     },
                     appcompat: {
                         type: 'implementation',
@@ -162,7 +162,7 @@ const transaction = {
                         type: 'implementation',
                         groupId: 'com.google.android.material',
                         artifactId: 'material',
-                        version: '1.8.0'
+                        version: '1.9.0'
                     },
                     constraintlayout: {
                         type: 'implementation',
