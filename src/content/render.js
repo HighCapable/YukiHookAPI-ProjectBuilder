@@ -407,13 +407,23 @@ const build = {
      */
     complete: (msg) => {
         dialogs.packagingProgress.close();
+
+        /** 显示保存为模版对话框 */
+        function showSaveToTemplate() {
+            mdui.confirm(locale.i18n.doYouWantSaveConfigTemplateTip, locale.i18n.notice, () => {
+                build.unlockStatus();
+                configTemplate.createNew();
+            }, () => {
+                build.unlockStatus();
+                page.reload();
+            }, {confirmText: locale.i18n.ok, cancelText: locale.i18n.cancel, modal: true, closeOnEsc: false});
+        }
+
         mdui.confirm(msg, locale.i18n.buildComplete, () => {
             ipcRenderer.send('open-complete-project');
-            build.unlockStatus();
-            page.reload();
+            showSaveToTemplate();
         }, () => {
-            build.unlockStatus();
-            page.reload();
+            showSaveToTemplate();
         }, {confirmText: locale.i18n.openProject, cancelText: locale.i18n.done, modal: true, closeOnEsc: false});
     },
     /**
