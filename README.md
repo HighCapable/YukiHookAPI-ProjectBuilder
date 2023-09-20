@@ -1,51 +1,50 @@
 # YukiHookAPI Project Builder
 
-![Blank](https://img.shields.io/badge/license-AGPL3.0-blue)
-![Blank](https://img.shields.io/badge/version-v1.0.4-green)
-[![Telegram](https://img.shields.io/badge/Follow-Telegram-blue.svg?logo=telegram)](https://t.me/YukiHookAPI)
-<br/><br/>
-<img src="https://github.com/fankes/YuKiHookAPI/blob/master/img-src/icon.png?raw=true" width = "100" height = "100"/>
-<br/>
-<br/>
+[![GitHub license](https://img.shields.io/github/license/fankes/YukiHookAPI-ProjectBuilder?color=blue)](https://github.com/fankes/YukiHookAPI-ProjectBuilder/blob/master/LICENSE)
+[![GitHub release](https://img.shields.io/github/v/release/fankes/YukiHookAPI-ProjectBuilder?display_name=release&logo=github&color=green)](https://github.com/fankes/YukiHookAPI-ProjectBuilder/releases)
+[![Telegram](https://img.shields.io/badge/discussion-Telegram-blue.svg?logo=telegram)](https://t.me/YukiHookAPI)
+[![Telegram](https://img.shields.io/badge/discussion%20dev-Telegram-blue.svg?logo=telegram)](https://t.me/HighCapable_Dev)
+
+<img src="https://github.com/fankes/YuKiHookAPI/blob/master/img-src/icon.png?raw=true" width = "100" height = "100" alt="LOGO"/>
+
 A Xposed Project Builder by YukiHookAPI.
-<br/>
 
 English | [简体中文](https://github.com/fankes/YukiHookAPI-ProjectBuilder/blob/master/README-zh-CN.md)
 
 ## What's this
 
-- This is an automatic building tool for Xposed modules using [YukiHookAPI](https://github.com/fankes/YukiHookAPI) as the core
+This is an automatic building tool for Xposed Modules using [YukiHookAPI](https://github.com/fankes/YukiHookAPI) as the core.
 
-- Implementing automated search relies on quickly building an Android project template that includes a Xposed module environment
+Implementing automated search relies on quickly building an Android project template that includes a Xposed Module environment.
 
 ## How to use
 
-- This project is developed using **Electron** to quickly build and run multi-platform localized applications
+This project is developed using **Electron** to quickly build and run multi-platform localized applications.
 
 You can download the application for your platform directly
 from [Release](https://github.com/fankes/YukiHookAPI-ProjectBuilder/releases).
 
-**The following are the manual deployment and compilation steps**
+> The following are the manual deployment and compilation steps
 
 First you need to install [node.js](https://nodejs.org/en/)
 
-IDE tools recommend **IntelliJ IDEA** or **WebStorm**
+IDE tools recommend **IntelliJ IDEA** or **WebStorm**.
 
 Formatting code with **Visual Studio Code** is not recommended and may cause some errors.
 
-- Execute the following command to install Electron
+Execute the following command to install Electron.
 
 ```
 npm install --save-dev electron
 ```
 
-- Execute the following command to install yarn
+Execute the following command to install yarn.
 
 ```
 npm install yarn
 ```
 
-- Enter the project directory and execute the following command to install dependencies
+Enter the project directory and execute the following command to install dependencies.
 
 ```
 npm install --save-dev @electron-forge/cli
@@ -55,13 +54,13 @@ npm install --save-dev @electron-forge/cli
 npx electron-forge import
 ```
 
-- Use the following command to debug
+Use the following command to debug.
 
 ```
 npm run start
 ```
 
-- Use the following commands to compile & package
+Use the following commands to compile & package.
 
 **Linux/macOS**
 
@@ -74,6 +73,10 @@ npm run make
 ```
 npm run package
 ```
+
+## Star History
+
+![Star History Chart](https://api.star-history.com/svg?repos=fankes/YukiHookAPI-ProjectBuilder&type=Date)
 
 ## License
 
