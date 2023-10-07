@@ -1,7 +1,7 @@
 # YukiHookAPI Project Builder
 
-[![GitHub license](https://img.shields.io/github/license/fankes/YukiHookAPI-ProjectBuilder?color=blue)](https://github.com/fankes/YukiHookAPI-ProjectBuilder/blob/master/LICENSE)
-[![GitHub release](https://img.shields.io/github/v/release/fankes/YukiHookAPI-ProjectBuilder?display_name=release&logo=github&color=green)](https://github.com/fankes/YukiHookAPI-ProjectBuilder/releases)
+[![GitHub license](https://img.shields.io/github/license/HighCapable/YukiHookAPI-ProjectBuilder?color=blue)](https://github.com/HighCapable/YukiHookAPI-ProjectBuilder/blob/master/LICENSE)
+[![GitHub release](https://img.shields.io/github/v/release/HighCapable/YukiHookAPI-ProjectBuilder?display_name=release&logo=github&color=green)](https://github.com/HighCapable/YukiHookAPI-ProjectBuilder/releases)
 [![Telegram](https://img.shields.io/badge/discussion-Telegram-blue.svg?logo=telegram)](https://t.me/YukiHookAPI)
 [![Telegram](https://img.shields.io/badge/discussion%20dev-Telegram-blue.svg?logo=telegram)](https://t.me/HighCapable_Dev)
 
@@ -9,7 +9,7 @@
 
 A Xposed Project Builder by YukiHookAPI.
 
-English | [简体中文](https://github.com/fankes/YukiHookAPI-ProjectBuilder/blob/master/README-zh-CN.md)
+English | [简体中文](https://github.com/HighCapable/YukiHookAPI-ProjectBuilder/blob/master/README-zh-CN.md)
 
 ## What's this
 
@@ -22,7 +22,7 @@ Implementing automated search relies on quickly building an Android project temp
 This project is developed using **Electron** to quickly build and run multi-platform localized applications.
 
 You can download the application for your platform directly
-from [Release](https://github.com/fankes/YukiHookAPI-ProjectBuilder/releases).
+from [Release](https://github.com/HighCapable/YukiHookAPI-ProjectBuilder/releases).
 
 > The following are the manual deployment and compilation steps
 
@@ -76,7 +76,7 @@ npm run package
 
 ## Star History
 
-![Star History Chart](https://api.star-history.com/svg?repos=fankes/YukiHookAPI-ProjectBuilder&type=Date)
+![Star History Chart](https://api.star-history.com/svg?repos=HighCapable/YukiHookAPI-ProjectBuilder&type=Date)
 
 ## License
 

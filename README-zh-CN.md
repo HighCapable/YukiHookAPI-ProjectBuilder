@@ -1,7 +1,7 @@
 # YukiHookAPI Project Builder
 
-[![GitHub license](https://img.shields.io/github/license/fankes/YukiHookAPI-ProjectBuilder?color=blue)](https://github.com/fankes/YukiHookAPI-ProjectBuilder/blob/master/LICENSE)
-[![GitHub release](https://img.shields.io/github/v/release/fankes/YukiHookAPI-ProjectBuilder?display_name=release&logo=github&color=green)](https://github.com/fankes/YukiHookAPI-ProjectBuilder/releases)
+[![GitHub license](https://img.shields.io/github/license/HighCapable/YukiHookAPI-ProjectBuilder?color=blue)](https://github.com/HighCapable/YukiHookAPI-ProjectBuilder/blob/master/LICENSE)
+[![GitHub release](https://img.shields.io/github/v/release/HighCapable/YukiHookAPI-ProjectBuilder?display_name=release&logo=github&color=green)](https://github.com/HighCapable/YukiHookAPI-ProjectBuilder/releases)
 [![Telegram](https://img.shields.io/badge/discussion-Telegram-blue.svg?logo=telegram)](https://t.me/YukiHookAPI)
 [![Telegram](https://img.shields.io/badge/discussion%20dev-Telegram-blue.svg?logo=telegram)](https://t.me/HighCapable_Dev)
 
@@ -9,7 +9,7 @@
 
 帮助你快速创建一个使用 YukiHookAPI 打造的 Xposed 项目模板。
 
-[English](https://github.com/fankes/YukiHookAPI-ProjectBuilder/blob/master/README.md) | 简体中文
+[English](https://github.com/HighCapable/YukiHookAPI-ProjectBuilder/blob/master/README.md) | 简体中文
 
 ## 这是什么
 
@@ -21,7 +21,7 @@
 
 本项目使用 **Electron** 开发，快速实现多平台本地化应用程序的构建和运行。
 
-你可以直接从 [Release](https://github.com/fankes/YukiHookAPI-ProjectBuilder/releases) 下载适合于你平台的应用程序。
+你可以直接从 [Release](https://github.com/HighCapable/YukiHookAPI-ProjectBuilder/releases) 下载适合于你平台的应用程序。
 
 > 以下是手动部署与编译步骤
 
@@ -77,7 +77,7 @@ npm run package
 
 ## Star History
 
-![Star History Chart](https://api.star-history.com/svg?repos=fankes/YukiHookAPI-ProjectBuilder&type=Date)
+![Star History Chart](https://api.star-history.com/svg?repos=HighCapable/YukiHookAPI-ProjectBuilder&type=Date)
 
 ## 许可证
 
