@@ -718,11 +718,12 @@ const page = {
         const repoName = 'YukiHookAPI-ProjectBuilder';
         httpClient.requestGet('https://api.github.com/repos/' + repoAuthor + '/' + repoName + '/releases/latest', (body) => {
             const newVersion = body['name'] ?? '';
-            const updateLogs = body['body']?.replace(/\n/g, "<br/>") ?? '';
+            // noinspection JSUnresolvedReference
+            const updateLogs = marked.parse(body['body']?.replace(/\n/g, "<br/>") ?? '');
             const updateUrl = body['html_url'] ?? '';
             if (newVersion !== page.appVersion)
                 mdui.confirm(locale.i18n.version + ':&nbsp' + newVersion + '<br/><br/>' +
-                    '<strong>' + locale.i18n.updateLogs + '</strong><br/><br/>' + updateLogs, locale.i18n.newVersionFound, () => {
+                    '<strong>' + locale.i18n.updateLogs + '</strong>' + updateLogs, locale.i18n.newVersionFound, () => {
                     page.openBrowser(updateUrl);
                 }, () => null, {
                     confirmText: locale.i18n.updateNow,
