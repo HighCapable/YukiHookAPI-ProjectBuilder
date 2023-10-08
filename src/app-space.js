@@ -87,7 +87,7 @@ const appSpace = {
             label: locale.i18n.helpDocumentation,
             accelerator: system.isMacOS ? 'command+h' : 'ctrl+h',
             click: () => {
-                system.openBrowser('https://fankes.github.io/YukiHookAPI');
+                system.openBrowser('https://highcapable.github.io/YukiHookAPI');
             }
         });
         const openSourceChildItem = new MenuItem({
