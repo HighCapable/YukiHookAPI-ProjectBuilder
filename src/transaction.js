@@ -122,7 +122,8 @@ const transaction = {
             'HookEntry.kt': {
                 annotations: {
                     entryClassName: (name) => 'entryClassName = "' + name + '"',
-                    supportResourcesHook: (isEnabled) => 'isUsingResourcesHook = ' + (isEnabled ? 'true' : 'false')
+                    supportResourcesHook: (isEnabled) => 'isUsingResourcesHook = ' + (isEnabled ? 'true' : 'false'),
+                    supportXposedModuleStatus: (isEnabled) => 'isUsingXposedModuleStatus = ' + (isEnabled ? 'true' : 'false')
                 },
                 configs: {
                     debugLog: {
@@ -131,7 +132,6 @@ const transaction = {
                     },
                     enableDebug: (isEnabled) => 'isDebug = ' + (isEnabled ? 'true' : 'false'),
                     enableResourcesCache: (isEnabled) => 'isEnableModuleAppResourcesCache = ' + (isEnabled ? 'true' : 'false'),
-                    enableModuleStatus: (isEnabled) => 'isEnableHookModuleStatus = ' + (isEnabled ? 'true' : 'false'),
                     enableYChannel: (isEnabled) => 'isEnableDataChannel = ' + (isEnabled ? 'true' : 'false')
                 }
             },
@@ -251,6 +251,11 @@ const transaction = {
             if (configs.yukiHookApiConfig.supportResourcesHook !== 0)
                 hookEntryAnnotationCode = hookEntryAnnotationCode.concat(
                     codeFiles['HookEntry.kt'].annotations.supportResourcesHook(configs.yukiHookApiConfig.supportResourcesHook === 1));
+            if (configs.yukiHookApiConfig.supportResourcesHook !== 0 && configs.yukiHookApiConfig.enableModuleStatus !== 0)
+                hookEntryAnnotationCode = hookEntryAnnotationCode.concat(', ');
+            if (configs.yukiHookApiConfig.enableModuleStatus !== 0)
+                hookEntryAnnotationCode = hookEntryAnnotationCode.concat(
+                    codeFiles['HookEntry.kt'].annotations.supportXposedModuleStatus(configs.yukiHookApiConfig.enableModuleStatus === 1));
             if (hookEntryAnnotationCode.trim() !== '')
                 hookEntryAnnotationCode = '(' + (hookEntryAnnotationCode.trim().endsWith(',') ?
                     hookEntryAnnotationCode.trim().substring(0, hookEntryAnnotationCode.trim().lastIndexOf(',')) :
@@ -276,9 +281,6 @@ const transaction = {
             if (configs.yukiHookApiConfig.enableResourcesCache !== 0)
                 hookEntryConfigsCode = codeFiles.append(hookEntryConfigsCode,
                     codeFiles['HookEntry.kt'].configs.enableResourcesCache(configs.yukiHookApiConfig.enableResourcesCache === 1));
-            if (configs.yukiHookApiConfig.enableModuleStatus !== 0)
-                hookEntryConfigsCode = codeFiles.append(hookEntryConfigsCode,
-                    codeFiles['HookEntry.kt'].configs.enableModuleStatus(configs.yukiHookApiConfig.enableModuleStatus === 1));
             if (configs.yukiHookApiConfig.enableYChannel !== 0)
                 hookEntryConfigsCode = codeFiles.append(hookEntryConfigsCode,
                     codeFiles['HookEntry.kt'].configs.enableYChannel(configs.yukiHookApiConfig.enableYChannel === 1));
