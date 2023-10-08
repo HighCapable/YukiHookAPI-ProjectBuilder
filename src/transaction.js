@@ -105,91 +105,6 @@ const transaction = {
                 });
                 return finalCode;
             },
-            /**
-             * 注入依赖 - 适用于 'build.gradle' 文件
-             * @param origCode 原始代码
-             * @param dependencies 依赖内容数组
-             * @return string
-             */
-            implement: (origCode, ...dependencies) => {
-                if (dependencies.length <= 0) return;
-                let finalCode = origCode;
-                dependencies.forEach((value) => {
-                    finalCode = finalCode.concat(value.type, codeFiles.space(1), '\'',
-                        value.groupId, ':', value.artifactId, ':', value.version, '\'\n', codeFiles.space(4));
-                });
-                return finalCode;
-            },
-            'build.gradle': {
-                dependencies: {
-                    androidXposed: {
-                        type: 'compileOnly',
-                        groupId: 'de.robv.android.xposed',
-                        artifactId: 'api',
-                        version: '82'
-                    },
-                    yukiHookApiApi: {
-                        type: 'implementation',
-                        groupId: 'com.highcapable.yukihookapi',
-                        artifactId: 'api',
-                        version: configs.projectDependencies.yukiHookApiVersion
-                    },
-                    yukiHookApiKsp: {
-                        type: 'ksp',
-                        groupId: 'com.highcapable.yukihookapi',
-                        artifactId: 'ksp-xposed',
-                        version: configs.projectDependencies.yukiHookApiVersion
-                    },
-                    drawabletoolbox: {
-                        type: 'implementation',
-                        groupId: 'com.github.duanhong169',
-                        artifactId: 'drawabletoolbox',
-                        version: '1.0.7'
-                    },
-                    androidxCoreKtx: {
-                        type: 'implementation',
-                        groupId: 'androidx.core',
-                        artifactId: 'core-ktx',
-                        version: '1.10.1'
-                    },
-                    appcompat: {
-                        type: 'implementation',
-                        groupId: 'androidx.appcompat',
-                        artifactId: 'appcompat',
-                        version: '1.6.1'
-                    },
-                    material: {
-                        type: 'implementation',
-                        groupId: 'com.google.android.material',
-                        artifactId: 'material',
-                        version: '1.9.0'
-                    },
-                    constraintlayout: {
-                        type: 'implementation',
-                        groupId: 'androidx.constraintlayout',
-                        artifactId: 'constraintlayout',
-                        version: '2.1.4'
-                    },
-                    junit: {
-                        type: 'testImplementation',
-                        groupId: 'junit',
-                        artifactId: 'junit',
-                        version: '4.13.2'
-                    },
-                    androidxTestExt: {
-                        type: 'androidTestImplementation',
-                        groupId: 'androidx.test.ext',
-                        artifactId: 'junit',
-                        version: '1.1.5'
-                    },
-                    androidxTestEspresso: {
-                        type: 'androidTestImplementation',
-                        groupId: 'androidx.test.espresso',
-                        artifactId: 'espresso-core',
-                        version: '3.5.1'
-                    }
-                }
-            },
             'AndroidManifest.xml': {
                 newXSharePrefs: (isEnabled) => ('<meta-data\n' +
                     codeFiles.space(12) + 'android:name="xposedsharedprefs"\n' +
@@ -226,6 +141,16 @@ const transaction = {
                 isTaiChiModuleActive: () => 'YukiHookAPI.Status.isTaiChiModuleActive'
             }
         };
+
+        /**
+         * Settings 插件命名空间
+         */
+        const settingsPlugins = {
+            // TODO SweetDependency 和 SweetProperty 暂时不支持自动获取版本
+            //      后期合并到 IDEA 插件后再做这里的更新
+            sweetDependencyVersion: '1.0.2',
+            sweetPropertyVersion: '1.0.3'
+        }
 
         /**
          * 更新创建进度显示
@@ -359,65 +284,19 @@ const transaction = {
                     codeFiles['HookEntry.kt'].configs.enableYChannel(configs.yukiHookApiConfig.enableYChannel === 1));
             hookEntryConfigsCode = hookEntryConfigsCode.trim();
             if (hookEntryConfigsCode === '') hookEntryConfigsCode = '// Your code here.';
-            let gradleDependenciesCode = '';
-            gradleDependenciesCode = codeFiles.implement(gradleDependenciesCode,
-                codeFiles['build.gradle'].dependencies.androidXposed);
-            gradleDependenciesCode = codeFiles.implement(gradleDependenciesCode,
-                codeFiles['build.gradle'].dependencies.yukiHookApiApi);
-            gradleDependenciesCode = codeFiles.implement(gradleDependenciesCode,
-                codeFiles['build.gradle'].dependencies.yukiHookApiKsp);
-            switch (configs.basicConfig.moduleCompoment) {
-                case 0:
-                    gradleDependenciesCode = codeFiles.implement(gradleDependenciesCode,
-                        codeFiles['build.gradle'].dependencies.drawabletoolbox);
-                    gradleDependenciesCode = codeFiles.implement(gradleDependenciesCode,
-                        codeFiles['build.gradle'].dependencies.androidxCoreKtx);
-                    gradleDependenciesCode = codeFiles.implement(gradleDependenciesCode,
-                        codeFiles['build.gradle'].dependencies.appcompat);
-                    gradleDependenciesCode = codeFiles.implement(gradleDependenciesCode,
-                        codeFiles['build.gradle'].dependencies.material);
-                    gradleDependenciesCode = codeFiles.implement(gradleDependenciesCode,
-                        codeFiles['build.gradle'].dependencies.constraintlayout);
-                    gradleDependenciesCode = codeFiles.implement(gradleDependenciesCode,
-                        codeFiles['build.gradle'].dependencies.junit);
-                    gradleDependenciesCode = codeFiles.implement(gradleDependenciesCode,
-                        codeFiles['build.gradle'].dependencies.androidxTestExt);
-                    gradleDependenciesCode = codeFiles.implement(gradleDependenciesCode,
-                        codeFiles['build.gradle'].dependencies.androidxTestEspresso);
-                    break;
-                case 1:
-                    gradleDependenciesCode = codeFiles.implement(gradleDependenciesCode,
-                        codeFiles['build.gradle'].dependencies.androidxCoreKtx);
-                    gradleDependenciesCode = codeFiles.implement(gradleDependenciesCode,
-                        codeFiles['build.gradle'].dependencies.appcompat);
-                    gradleDependenciesCode = codeFiles.implement(gradleDependenciesCode,
-                        codeFiles['build.gradle'].dependencies.material);
-                    gradleDependenciesCode = codeFiles.implement(gradleDependenciesCode,
-                        codeFiles['build.gradle'].dependencies.constraintlayout);
-                    gradleDependenciesCode = codeFiles.implement(gradleDependenciesCode,
-                        codeFiles['build.gradle'].dependencies.junit);
-                    gradleDependenciesCode = codeFiles.implement(gradleDependenciesCode,
-                        codeFiles['build.gradle'].dependencies.androidxTestExt);
-                    gradleDependenciesCode = codeFiles.implement(gradleDependenciesCode,
-                        codeFiles['build.gradle'].dependencies.androidxTestEspresso);
-                    break;
-                case 2:
-                    gradleDependenciesCode = codeFiles.implement(gradleDependenciesCode,
-                        codeFiles['build.gradle'].dependencies.junit);
-                    gradleDependenciesCode = codeFiles.implement(gradleDependenciesCode,
-                        codeFiles['build.gradle'].dependencies.androidxTestExt);
-                    gradleDependenciesCode = codeFiles.implement(gradleDependenciesCode,
-                        codeFiles['build.gradle'].dependencies.androidxTestEspresso);
-                    break;
-            }
-            gradleDependenciesCode = gradleDependenciesCode.trim();
-            fileSystem.replaces(targetPath, ['gradle', 'properties', 'kt', 'xml'], [
+            fileSystem.replaces(targetPath, ['gradle.kts', 'properties', 'kt', 'xml', 'yaml'], [
                 {
                     placeholder: '{GRADLE_PAPER}',
                     value: configs.projectDependencies.gradlePaper
                 }, {
                     placeholder: '{GRADLE_PROPERTIES_DATE}',
                     value: dateTime.cstTime()
+                }, {
+                    placeholder: '{SWEETDEPENDENCY_VERSION}',
+                    value: settingsPlugins.sweetDependencyVersion
+                }, {
+                    placeholder: '{SWEETPROPERTY_VERSION}',
+                    value: settingsPlugins.sweetPropertyVersion
                 }, {
                     placeholder: '{AGP_VERSION}',
                     value: configs.projectDependencies.androidGradlePluginVersion
@@ -457,9 +336,6 @@ const transaction = {
                 }, {
                     placeholder: '{SCOPE_ITEMS}',
                     value: moduleScopesCode
-                }, {
-                    placeholder: '{GRADLE_DEPENDENCIES}',
-                    value: gradleDependenciesCode
                 }, {
                     placeholder: '{YUKIHOOKAPI_MODULE_ACTIVE_STATUS}',
                     value: moduleActiveStatusCode
