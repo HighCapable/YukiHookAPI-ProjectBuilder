@@ -18,7 +18,7 @@
     "@electron-forge/maker-rpm": "^6.0.0-beta.64",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.64",
     "@electron-forge/maker-zip": "^6.0.0-beta.64",
-    "electron": "20.3.9",
+    "electron": "22.3.23",
     "electron-icon-builder": "^2.0.1"
   },
   "dependencies": {
