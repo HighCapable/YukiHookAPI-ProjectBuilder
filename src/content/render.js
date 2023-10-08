@@ -58,7 +58,7 @@ const projectConfigs = {
         appName: '',
         moduleDescription: '',
         appMinApi: 27,
-        appTargetApi: 33,
+        appTargetApi: 34,
         xposedMinApi: 93,
         moduleCompoment: 0,
         targetXposedPlatform: 0,
@@ -366,10 +366,10 @@ const build = {
         else if (valUtils.isEmpty(configForm.appMinApiText())) page.snack(locale.i18n.enterAppMinApiVersionTip);
         else if (configForm.targetXposedPlatformSelect() === 2 && configForm.appMinApiText() < 27) page.snack(locale.i18n.lsposedSupportMinAppApiWarnTip);
         else if (configForm.appMinApiText() < 21) page.snack(locale.i18n.tooLowAppMinApiVersionWarnTip);
-        else if (configForm.appMinApiText() > 33) page.snack(locale.i18n.tooHighAppMinApiVersionWarnTip);
+        else if (configForm.appMinApiText() > 34) page.snack(locale.i18n.tooHighAppMinApiVersionWarnTip);
         else if (valUtils.isEmpty(configForm.appTargetApiText())) page.snack(locale.i18n.enterAppTargetApiVersionTip);
         else if (configForm.appTargetApiText() < configForm.appMinApiText()) page.snack(locale.i18n.tooLowAppTargetApiVersionWarnTip);
-        else if (configForm.appTargetApiText() > 33) page.snack(locale.i18n.maybeInvalidAppTargetApiVersionTip);
+        else if (configForm.appTargetApiText() > 34) page.snack(locale.i18n.maybeInvalidAppTargetApiVersionTip);
         else if (valUtils.isEmpty(configForm.xposedMinApiText())) page.snack(locale.i18n.enterXposedMinApiVersionTip);
         else if (configForm.xposedMinApiText() < 82) page.snack(locale.i18n.tooLowXposedMinApiVersionWarnTip);
         else if (configForm.xposedMinApiText() > 93) page.snack(locale.i18n.tooHighXposedMinApiVersionWarnTip);
