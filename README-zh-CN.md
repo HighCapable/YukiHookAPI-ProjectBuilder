@@ -5,7 +5,7 @@
 [![Telegram](https://img.shields.io/badge/discussion-Telegram-blue.svg?logo=telegram)](https://t.me/YukiHookAPI)
 [![Telegram](https://img.shields.io/badge/discussion%20dev-Telegram-blue.svg?logo=telegram)](https://t.me/HighCapable_Dev)
 
-<img src="https://github.com/fankes/YuKiHookAPI/blob/master/img-src/icon.png?raw=true" width = "100" height = "100" alt="LOGO"/>
+<img src="https://github.com/HighCapable/YuKiHookAPI/blob/master/img-src/icon.png?raw=true" width = "100" height = "100" alt="LOGO"/>
 
 帮助你快速创建一个使用 YukiHookAPI 打造的 Xposed 项目模板。
 
@@ -13,7 +13,7 @@
 
 ## 这是什么
 
-这是一个使用 [YukiHookAPI](https://github.com/fankes/YukiHookAPI) 作为核心的 Xposed 模块自动构建工具。
+这是一个使用 [YukiHookAPI](https://github.com/HighCapable/YuKiHookAPI) 作为核心的 Xposed 模块自动构建工具。
 
 实现自动化搜索依赖快速搭建一个包含 Xposed 模块环境的 Android 项目模板。
 

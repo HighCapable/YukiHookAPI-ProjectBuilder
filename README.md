@@ -5,7 +5,7 @@
 [![Telegram](https://img.shields.io/badge/discussion-Telegram-blue.svg?logo=telegram)](https://t.me/YukiHookAPI)
 [![Telegram](https://img.shields.io/badge/discussion%20dev-Telegram-blue.svg?logo=telegram)](https://t.me/HighCapable_Dev)
 
-<img src="https://github.com/fankes/YuKiHookAPI/blob/master/img-src/icon.png?raw=true" width = "100" height = "100" alt="LOGO"/>
+<img src="https://github.com/HighCapable/YuKiHookAPI/blob/master/img-src/icon.png?raw=true" width = "100" height = "100" alt="LOGO"/>
 
 A Xposed Project Builder by YukiHookAPI.
 
@@ -13,7 +13,7 @@ English | [简体中文](https://github.com/HighCapable/YukiHookAPI-ProjectBuild
 
 ## What's this
 
-This is an automatic building tool for Xposed Modules using [YukiHookAPI](https://github.com/fankes/YukiHookAPI) as the core.
+This is an automatic building tool for Xposed Modules using [YukiHookAPI](https://github.com/HighCapable/YuKiHookAPI) as the core.
 
 Implementing automated search relies on quickly building an Android project template that includes a Xposed Module environment.
 

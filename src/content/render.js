@@ -461,7 +461,7 @@ const projectDepends = {
         androidGradlePlugin: 'https://dl.google.com/dl/android/maven2/com/android/application/com.android.application.gradle.plugin/maven-metadata.xml',
         kotlin: 'https://api.github.com/repos/JetBrains/kotlin/releases',
         kotlinKsp: 'https://api.github.com/repos/google/ksp/releases',
-        yukiHookApi: 'https://api.github.com/repos/fankes/YukiHookAPI/releases'
+        yukiHookApi: 'https://api.github.com/repos/HighCapable/YuKiHookAPI/releases'
     },
     /** 搜索项目依赖 */
     search() {
