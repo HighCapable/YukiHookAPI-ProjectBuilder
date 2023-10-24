@@ -11,6 +11,11 @@ A Xposed Project Builder by YukiHookAPI.
 
 English | [简体中文](https://github.com/HighCapable/YukiHookAPI-ProjectBuilder/blob/master/README-zh-CN.md)
 
+| <img src="https://github.com/HighCapable/.github/blob/main/img-src/logo.jpg?raw=true" width = "30" height = "30" alt="LOGO"/> | [HighCapable](https://github.com/HighCapable) |
+|-------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
+
+This project belongs to the above-mentioned organization, **click the link above to follow this organization** and discover more good projects.
+
 ## Project Migration Notice
 
 The ultimate goal of this project is to create a new Android Studio/IDEA project template, and then open the project in the corresponding IDE.

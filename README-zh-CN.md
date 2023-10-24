@@ -11,6 +11,11 @@
 
 [English](https://github.com/HighCapable/YukiHookAPI-ProjectBuilder/blob/master/README.md) | 简体中文
 
+| <img src="https://github.com/HighCapable/.github/blob/main/img-src/logo.jpg?raw=true" width = "30" height = "30" alt="LOGO"/> | [HighCapable](https://github.com/HighCapable) |
+|-------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
+
+这个项目属于上述组织，**点击上方链接关注这个组织**，发现更多好项目。
+
 ## 项目迁移公告
 
 这个项目最终的目的就是创建一个新的 Android Studio/IDEA 项目模版，然后再在对应的 IDE 中打开项目。
