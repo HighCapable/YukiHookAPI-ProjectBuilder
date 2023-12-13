@@ -143,16 +143,6 @@ const transaction = {
         };
 
         /**
-         * Settings 插件命名空间
-         */
-        const settingsPlugins = {
-            // TODO SweetDependency 和 SweetProperty 暂时不支持自动获取版本
-            //      后期合并到 IDEA 插件后再做这里的更新
-            sweetDependencyVersion: '1.0.2',
-            sweetPropertyVersion: '1.0.3'
-        }
-
-        /**
          * 更新创建进度显示
          * @param progress 当前进度
          */
@@ -295,10 +285,10 @@ const transaction = {
                     value: dateTime.cstTime()
                 }, {
                     placeholder: '{SWEETDEPENDENCY_VERSION}',
-                    value: settingsPlugins.sweetDependencyVersion
+                    value: configs.projectDependencies.sweetDependencyVersion
                 }, {
                     placeholder: '{SWEETPROPERTY_VERSION}',
-                    value: settingsPlugins.sweetPropertyVersion
+                    value: configs.projectDependencies.sweetPropertyVersion
                 }, {
                     placeholder: '{AGP_VERSION}',
                     value: configs.projectDependencies.androidGradlePluginVersion

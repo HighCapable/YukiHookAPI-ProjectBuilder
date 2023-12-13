@@ -47,6 +47,8 @@ const dependenciesConfigs = {
     gradlePapers: [],
     androidGradlePluginVersions: [],
     kotlinVersions: [],
+    sweetDependencyVersions: [],
+    sweetPropertyVersions: [],
     yukiHookApiVersions: []
 };
 
@@ -80,6 +82,8 @@ const projectConfigs = {
         androidGradlePluginVersion: '',
         kotlinVersion: '',
         kotlinKspVersion: '',
+        sweetDependencyVersion: '',
+        sweetPropertyVersion: '',
         yukiHookApiVersion: ''
     }
 };
@@ -461,6 +465,8 @@ const projectDepends = {
         androidGradlePlugin: 'https://dl.google.com/dl/android/maven2/com/android/application/com.android.application.gradle.plugin/maven-metadata.xml',
         kotlin: 'https://api.github.com/repos/JetBrains/kotlin/releases',
         kotlinKsp: 'https://api.github.com/repos/google/ksp/releases',
+        sweetDependency: 'https://api.github.com/repos/HighCapable/SweetDependency/releases',
+        sweetProperty: 'https://api.github.com/repos/HighCapable/SweetProperty/releases',
         yukiHookApi: 'https://api.github.com/repos/HighCapable/YuKiHookAPI/releases'
     },
     /** 搜索项目依赖 */
@@ -565,8 +571,34 @@ const projectDepends = {
                 return !valUtils.isEmpty(value.ksp);
             });
             if (dependenciesConfigs.kotlinVersions.length > 0)
-                projectDepends.findYukiHookApiVersion();
+                projectDepends.findSweetDependencyVersion();
             else projectDepends.failure('Kotlin-Ksp', false);
+        });
+    },
+    /** 获取 SweetDependency 版本 */
+    findSweetDependencyVersion: () => {
+        httpClient.requestDepends('SweetDependency', projectDepends.urls.sweetDependency, (body) => {
+            dependenciesConfigs.sweetDependencyVersions = [];
+            const latestVersion = body.length > 0 ? body[0]['tag_name'] : '';
+            if (latestVersion !== '') {
+                dependenciesConfigs.sweetDependencyVersions.push(latestVersion);
+                /** 直接设置为最新版本 */
+                projectConfigs.projectDependencies.sweetDependencyVersion = latestVersion;
+                projectDepends.findSweetPropertyVersion();
+            } else projectDepends.failure('SweetDependency', false);
+        });
+    },
+    /** 获取 SweetProperty 版本 */
+    findSweetPropertyVersion: () => {
+        httpClient.requestDepends('SweetProperty', projectDepends.urls.sweetProperty, (body) => {
+            dependenciesConfigs.sweetPropertyVersions = [];
+            const latestVersion = body.length > 0 ? body[0]['tag_name'] : '';
+            if (latestVersion !== '') {
+                dependenciesConfigs.sweetPropertyVersions.push(latestVersion);
+                /** 直接设置为最新版本 */
+                projectConfigs.projectDependencies.sweetPropertyVersion = latestVersion;
+                projectDepends.findYukiHookApiVersion();
+            } else projectDepends.failure('SweetProperty', false);
         });
     },
     /** 获取 YukiHookAPI 版本 */
