@@ -2,7 +2,7 @@
 
 /*
  * YukiHookAPI Project Builder - A Xposed Project Builder by YukiHookAPI.
- * Copyright (C) 2019-2023 HighCapable
+ * Copyright (C) 2019-2024 HighCapable
  * https://github.com/HighCapable/YukiHookAPI-ProjectBuilder
  *
  * This software is non-free but opensource software: you can redistribute it
