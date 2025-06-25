@@ -1,10 +1,10 @@
 # YukiHookAPI Project Builder
 
-[![GitHub license](https://img.shields.io/github/license/HighCapable/YukiHookAPI-ProjectBuilder?color=blue)](https://github.com/HighCapable/YukiHookAPI-ProjectBuilder/blob/master/LICENSE)
-[![GitHub release](https://img.shields.io/github/v/release/HighCapable/YukiHookAPI-ProjectBuilder?display_name=release&logo=github&color=green)](https://github.com/HighCapable/YukiHookAPI-ProjectBuilder/releases)
-[![Telegram](https://img.shields.io/badge/discussion-Telegram-blue.svg?logo=telegram)](https://t.me/YukiHookAPI)
-[![Telegram](https://img.shields.io/badge/discussion%20dev-Telegram-blue.svg?logo=telegram)](https://t.me/HighCapable_Dev)
-[![QQ](https://img.shields.io/badge/discussion%20dev-QQ-blue.svg?logo=tencent-qq&logoColor=red)](https://qm.qq.com/cgi-bin/qm/qr?k=Pnsc5RY6N2mBKFjOLPiYldbAbprAU3V7&jump_from=webapi&authKey=X5EsOVzLXt1dRunge8ryTxDRrh9/IiW1Pua75eDLh9RE3KXE+bwXIYF5cWri/9lf)
+[![GitHub license](https://img.shields.io/github/license/HighCapable/YukiHookAPI-ProjectBuilder?color=blue&style=flat-square)](https://github.com/HighCapable/YukiHookAPI-ProjectBuilder/blob/master/LICENSE)
+[![GitHub release](https://img.shields.io/github/v/release/HighCapable/YukiHookAPI-ProjectBuilder?display_name=release&logo=github&color=green&style=flat-square)](https://github.com/HighCapable/YukiHookAPI-ProjectBuilder/releases)
+[![Telegram](https://img.shields.io/badge/discussion-Telegram-blue.svg?logo=telegram&style=flat-square)](https://t.me/YukiHookAPI)
+[![Telegram](https://img.shields.io/badge/discussion%20dev-Telegram-blue.svg?logo=telegram&style=flat-square)](https://t.me/HighCapable_Dev)
+[![QQ](https://img.shields.io/badge/discussion%20dev-QQ-blue.svg?logo=tencent-qq&logoColor=red&style=flat-square)](https://qm.qq.com/cgi-bin/qm/qr?k=Pnsc5RY6N2mBKFjOLPiYldbAbprAU3V7&jump_from=webapi&authKey=X5EsOVzLXt1dRunge8ryTxDRrh9/IiW1Pua75eDLh9RE3KXE+bwXIYF5cWri/9lf)
 
 <img src="img-src/icon.png" width = "100" height = "100" alt="LOGO"/>
 
@@ -30,6 +30,9 @@ In this way, you can use IDEA to install the plugin to create projects directly 
 After the new project is determined, a link to the new project will be added here.
 
 At that time, I will terminate the maintenance of this project and recommend that everyone move to the new project.
+
+**The project builder will be maintained before the release of the first `2.0.0` version of `YukiHookAPI`. This project will be officially deprecated
+after the new version is released.**
 
 ## What's this
 
