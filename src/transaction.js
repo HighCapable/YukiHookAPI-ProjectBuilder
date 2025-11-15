@@ -276,7 +276,7 @@ const transaction = {
                     codeFiles['HookEntry.kt'].configs.enableYChannel(configs.yukiHookApiConfig.enableYChannel === 1));
             hookEntryConfigsCode = hookEntryConfigsCode.trim();
             if (hookEntryConfigsCode === '') hookEntryConfigsCode = '// Your code here.';
-            fileSystem.replaces(targetPath, ['gradle.kts', 'properties', 'kt', 'xml', 'yaml'], [
+            fileSystem.replaces(targetPath, ['gradle.kts', 'properties', 'kt', 'xml', 'toml'], [
                 {
                     placeholder: '{GRADLE_PAPER}',
                     value: configs.projectDependencies.gradlePaper
@@ -284,11 +284,8 @@ const transaction = {
                     placeholder: '{GRADLE_PROPERTIES_DATE}',
                     value: dateTime.cstTime()
                 }, {
-                    placeholder: '{SWEETDEPENDENCY_VERSION}',
-                    value: configs.projectDependencies.sweetDependencyVersion
-                }, {
-                    placeholder: '{SWEETPROPERTY_VERSION}',
-                    value: configs.projectDependencies.sweetPropertyVersion
+                    placeholder: '{GROPIFY_VERSION}',
+                    value: configs.projectDependencies.gropifyVersion
                 }, {
                     placeholder: '{AGP_VERSION}',
                     value: configs.projectDependencies.androidGradlePluginVersion

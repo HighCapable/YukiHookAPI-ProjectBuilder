@@ -47,8 +47,7 @@ const dependenciesConfigs = {
     gradlePapers: [],
     androidGradlePluginVersions: [],
     kotlinVersions: [],
-    sweetDependencyVersions: [],
-    sweetPropertyVersions: [],
+    gropifyVersions: [],
     yukiHookApiVersions: []
 };
 
@@ -82,8 +81,7 @@ const projectConfigs = {
         androidGradlePluginVersion: '',
         kotlinVersion: '',
         kotlinKspVersion: '',
-        sweetDependencyVersion: '',
-        sweetPropertyVersion: '',
+        gropifyVersion: '',
         yukiHookApiVersion: ''
     }
 };
@@ -465,8 +463,7 @@ const projectDepends = {
         androidGradlePlugin: 'https://dl.google.com/dl/android/maven2/com/android/application/com.android.application.gradle.plugin/maven-metadata.xml',
         kotlin: 'https://api.github.com/repos/JetBrains/kotlin/releases',
         kotlinKsp: 'https://api.github.com/repos/google/ksp/releases',
-        sweetDependency: 'https://api.github.com/repos/HighCapable/SweetDependency/releases',
-        sweetProperty: 'https://api.github.com/repos/HighCapable/SweetProperty/releases',
+        gropify: 'https://repo1.maven.org/maven2/com/highcapable/gropify/gropify/maven-metadata.xml',
         yukiHookApi: 'https://api.github.com/repos/HighCapable/YuKiHookAPI/releases'
     },
     /** 搜索项目依赖 */
@@ -571,34 +568,21 @@ const projectDepends = {
                 return !valUtils.isEmpty(value.ksp);
             });
             if (dependenciesConfigs.kotlinVersions.length > 0)
-                projectDepends.findSweetDependencyVersion();
+                projectDepends.findGropifyVersion();
             else projectDepends.failure('Kotlin-Ksp', false);
         });
     },
-    /** 获取 SweetDependency 版本 */
-    findSweetDependencyVersion: () => {
-        httpClient.requestDepends('SweetDependency', projectDepends.urls.sweetDependency, (body) => {
-            dependenciesConfigs.sweetDependencyVersions = [];
-            const latestVersion = body.length > 0 ? body[0]['tag_name'] : '';
+    /** 获取 Gropify 版本 */
+    findGropifyVersion: () => {
+        httpClient.requestDepends('Gropify', projectDepends.urls.gropify, (body) => {
+            dependenciesConfigs.gropifyVersions = [];
+            const latestVersion = $(body).find('latest').text();
             if (latestVersion !== '') {
-                dependenciesConfigs.sweetDependencyVersions.push(latestVersion);
+                dependenciesConfigs.gropifyVersions.push(latestVersion);
                 /** 直接设置为最新版本 */
-                projectConfigs.projectDependencies.sweetDependencyVersion = latestVersion;
-                projectDepends.findSweetPropertyVersion();
-            } else projectDepends.failure('SweetDependency', false);
-        });
-    },
-    /** 获取 SweetProperty 版本 */
-    findSweetPropertyVersion: () => {
-        httpClient.requestDepends('SweetProperty', projectDepends.urls.sweetProperty, (body) => {
-            dependenciesConfigs.sweetPropertyVersions = [];
-            const latestVersion = body.length > 0 ? body[0]['tag_name'] : '';
-            if (latestVersion !== '') {
-                dependenciesConfigs.sweetPropertyVersions.push(latestVersion);
-                /** 直接设置为最新版本 */
-                projectConfigs.projectDependencies.sweetPropertyVersion = latestVersion;
+                projectConfigs.projectDependencies.gropifyVersion = latestVersion;
                 projectDepends.findYukiHookApiVersion();
-            } else projectDepends.failure('SweetProperty', false);
+            } else projectDepends.failure('Gropify', false);
         });
     },
     /** 获取 YukiHookAPI 版本 */
