@@ -17,18 +17,6 @@
 
 这个项目属于上述组织，**点击上方链接关注这个组织**，发现更多好项目。
 
-## 项目迁移公告
-
-这个项目最终的目的就是创建一个新的 Android Studio/IDEA 项目模版，然后再在对应的 IDE 中打开项目。
-
-这种方式不是很优雅，而且需要在用户的电脑上安装这个软件，后期我准备将这个项目合并到 IDEA 插件中，集成到新项目模版功能里。
-
-这样一来，使用 IDEA 安装插件即可实现直接使用此模版创建项目的功能，而且更加灵活和具有可拓展性。
-
-在新的项目确定后，会在这里添加新项目的链接，届时我会终止维护这个项目并建议大家转移到新项目。
-
-**项目构建器将会在 `YukiHookAPI` 发布第一个 `2.0.0` 版本之前做最后的维护，在新的版本发布后，这个项目将正式弃用。**
-
 ## 这是什么
 
 这是一个使用 [YukiHookAPI](https://github.com/HighCapable/YuKiHookAPI) 作为核心的 Xposed 模块自动构建工具。
@@ -86,16 +74,6 @@ npm run make
 ```
 npm run package
 ```
-
-## 更多项目
-
-<!--suppress HtmlDeprecatedAttribute -->
-<div align="center">
-    <h2>嘿，还请君留步！👋</h2>
-    <h3>如果你觉得这个项目能给你提供帮助，不妨继续往下看看我的更多项目吧！</h3>
-    <h3>如果这些项目能为你提供帮助，不妨为我点个关注或者 star ⭐️ 吧！</h3>
-    <h1><a href="https://github.com/fankes/fankes/blob/main/project-promote/README-zh-CN.md">→ 查看更多关于我的项目，请点击这里 ←</a></h1>
-</div>
 
 ## Star History
 

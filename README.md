@@ -17,23 +17,6 @@ English | [简体中文](README-zh-CN.md)
 
 This project belongs to the organization above. **Click the link to follow us** and discover more awesome projects.
 
-## Project Migration Notice
-
-The ultimate goal of this project is to create a new Android Studio/IDEA project template, and then open the project in the corresponding IDE.
-
-This method is not very elegant and requires the software to be installed on the user's computer.
-
-Later, I plan to merge this project into the IDEA plugin and integrate it into the new project template function.
-
-In this way, you can use IDEA to install the plugin to create projects directly using this template, and it is more flexible and scalable.
-
-After the new project is determined, a link to the new project will be added here.
-
-At that time, I will terminate the maintenance of this project and recommend that everyone move to the new project.
-
-**The project builder will be maintained before the release of the first `2.0.0` version of `YukiHookAPI`. This project will be officially deprecated
-after the new version is released.**
-
 ## What's this
 
 This is an automatic building tool for Xposed Modules using [YukiHookAPI](https://github.com/HighCapable/YuKiHookAPI) as the core.
@@ -96,16 +79,6 @@ npm run make
 ```
 npm run package
 ```
-
-## More Projects
-
-<!--suppress HtmlDeprecatedAttribute -->
-<div align="center">
-    <h2>Hey, wait a second! 👋</h2>
-    <h3>If this project was helpful, why not stick around and check out more of my work below?</h3>
-    <h3>Feel free to leave a follow or a star ⭐️ if they bring you value!</h3>
-    <h1><a href="https://github.com/fankes/fankes/blob/main/project-promote/README.md">→ Click here to discover more of my projects ←</a></h1>
-</div>
 
 ## Star History
 
