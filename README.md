@@ -17,6 +17,15 @@ English | [简体中文](README-zh-CN.md)
 
 This project belongs to the organization above. **Click the link to follow us** and discover more awesome projects.
 
+## 🚨 Maintenance of this project has been stopped
+
+With architectural adjustments to the main project YukiHook, along with rapid iterations and compatibility issues of AGP, the original value of this
+project has disappeared. It will no longer be maintained and has been deprecated, and plans for the IDE plugin have also been terminated. We recommend
+that you manually create a standard Android project template using Android Studio and import YukiHook for use.
+
+Much of the code in this project may have black-box issues arising from immature architectural design in its early stages. It is for learning and
+reference only, please do not use it in production projects.
+
 ## What's this
 
 This is an automatic building tool for Xposed Modules using [YukiHookAPI](https://github.com/HighCapable/YuKiHookAPI) as the core.
@@ -27,8 +36,7 @@ Implementing automated search relies on quickly building an Android project temp
 
 This project is developed using **Electron** to quickly build and run multi-platform localized applications.
 
-You can download the application for your platform directly
-from [Release](https://github.com/HighCapable/YukiHookAPI-ProjectBuilder/releases).
+You can download the application for your platform directly from [Release](https://github.com/HighCapable/YukiHookAPI-ProjectBuilder/releases).
 
 > The following are the manual deployment and compilation steps
 
